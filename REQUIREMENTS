@@ -1,0 +1,10 @@
+
+Requerimientos:
+-El sistema debe ingresar usarios -> debe ingresar nombre y contraseña
+-El sistema debe modificar usuarios
+-El sistema debe eliminar usarios
+-El sistema debe iniciar sesion con nombre y contraseña
+-El sistema debe cerrar sesion 
+-El sistema debe notificar fecha de entrega del trabajo
+-El sistema debe notificar de que materia se trata el trabajo
+-El sistema debe notificar que profesor subio el trabajo
