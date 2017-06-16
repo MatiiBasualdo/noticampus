@@ -18,40 +18,18 @@
 				</ul>
 			</div>
 			<div class="body">
-				<div id="featured">
-					<h3>This is a FREE website template</h3>
-					<p>This website template has been designed by Free Website Templates for you, for free. You can 
-					replace all this text with your own text. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
-					sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi 
-					enim ad minim veniam, quis nostrud exerci tation ullamcorper</p>
-					<input type="button" value="Read more" onClick="parent.location='blog.html'"/>
+				<div>
+					<h1>Noticias</h1>
 				</div>
-				<ul class="blog">
-					<li>
-						<div>
-							<a href="blog.html"><img src="{% static 'img/pastries.jpg' %}" alt=""/></a>
-							<p>This website template has been designed by Free Website Templates for you, for free. 
-							You can replace all this text with your own text.</p>
-							<a href="blog.html">Click to read more</a>
-						</div>
-					</li>
-					<li>
-						<div>
-							<a href="blog.html"><img src="{{static}}img/fruits.jpg" alt=""/></a>
-							<p>This website template has been designed by Free Website Templates for you, for free. 
-							You can replace all this text with your own text.</p>
-							<a href="blog.html">Click to read more</a>
-						</div>
-					</li>
-					<li>
-						<div>
-							<a href="blog.html"><img src="{{static}}img/cosmetics.jpg" alt=""/></a>
-							<p>This website template has been designed by Free Website Templates for you, for free. 
-							You can replace all this text with your own text.</p>
-							<a href="blog.html">Click to read more</a>
-						</div>
-					</li>
-				</ul>
+				{% for noticia in noticias%}
+				<div>
+					<p>de {{noticia.author}} - {{noticia.created_date}}</p>
+					<p>{{ noticia.title }}</p>
+					<p>{{ noticia.text|linebreaksbr }}</p>
+					<a href="blog.html">Click to read more</a>
+					<br>
+				</div>
+				{% endfor %}
 			</div>
 			<div class="footer">
 				<ul>
