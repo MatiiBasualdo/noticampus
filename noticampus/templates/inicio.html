@@ -9,24 +9,24 @@
 	<body>
 		<div class="page">
 			<div class="header">
-				<a href="index.html" id="logo"><img src="{% static 'img/logo.gif' %}" alt=""/></a>
+				<a href="index.html" id="logo"><img src="{% static 'img/logo.png' %}" alt=""/></a>
 				<ul>
 					<li class="selected"><a href="">Home</a></li>
 					<li><a href="">About</a></li>
-					<li><a href="">Blog</a></li>
-					<li><a href="">Services</a></li>
+					<li><a href="">Cursos</a></li>
+					<li><a href="">Notificaciones</a></li>
 				</ul>
 			</div>
 			<div class="body">
 				<div>
-					<h1>Noticias</h1>
+					<h2>Noticias</h2>
 				</div>
 				{% for noticia in noticias%}
 				<div>
 					<p>de {{noticia.author}} - {{noticia.created_date}}</p>
 					<p>{{ noticia.title }}</p>
 					<p>{{ noticia.text|linebreaksbr }}</p>
-					<a href="blog.html">Click to read more</a>
+					<a href="blog.html">Leer mas</a>
 					<br>
 				</div>
 				{% endfor %}
@@ -35,10 +35,10 @@
 				<ul>
 					<li><a href="">Home</a></li>
 					<li><a href="">About</a></li>
-					<li><a href="">Blog</a></li>
-					<li><a href="">Gallery</a></li>
+					<li><a href="">Cursos</a></li>
+					<li><a href="">Notificaciones</a></li>
 				</ul>
-				<p>&#169; Copyright &#169; 2011. Company name all rights reserved</p>
+				<p>&#169; Copyright &#169; 2k17. Company eEl fAmeEGHiiñ0o v0o </p>
 				<div class="connect">
 					<a href="http://facebook.com/" id="facebook">facebook</a>
 					<a href="http://twitter.com/" id="twitter">twitter</a>

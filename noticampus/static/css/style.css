@@ -23,10 +23,10 @@ body{
 /*------------------------- Header ------------------------*/ 
 .header{
 	background:url(../images/bg-navigation.jpg) no-repeat center 90px;
-	width:940px;
+	width:1100px;
 	margin:0 auto;
-	height:105px;
-	padding:36px 10px 0;
+	height:100px;
+	padding:36px 0px 1;
 }
 .header a#logo{
 	display:block;
@@ -44,13 +44,13 @@ body{
 }
 .header ul li{
 	float:left;
-	margin:0 0 0 63px;
+	margin:0 0 0 70px;
 }
 .header ul li.selected a,.header ul li a:hover{
 	color:#f78117;
 }
 .header ul li a{
-	font-size:16px;
+	font-size:20px;
 	text-decoration:none;
 	color:#5e5e5e;
 	font-family: 'RokkittRegular';
@@ -59,7 +59,7 @@ body{
 
 /*------------------------- Body ------------------------*/ 
 .body{
-	width:940px;
+	width:1000px;
 	margin:0 auto;
 	padding:0 10px;
 	overflow:hidden;
@@ -178,9 +178,9 @@ body{
 }
 .body p{
 	font-family: 'RokkittRegular';
-	font-size:16px;
+	font-size:19px;
 	text-align:justify;
-	color:#636363;
+	color:#000000;
 	margin:0 0 20px;
 	line-height:21px;
 }
