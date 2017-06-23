@@ -7,6 +7,9 @@
 		<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	</head>
 	<body>
+		<p>Bienvenido {{usuario.username|upper}},
+        	Ultima vez logueado: {{usuario.last_login}}.</p>
+    	<p>Te logueaste el dia {{usuario.date_joined}}</p>
 		<div class="page">
 			<div class="header">
 				<a href="index.html" id="logo"><img src="{% static 'img/logo.png' %}" alt=""/></a>
