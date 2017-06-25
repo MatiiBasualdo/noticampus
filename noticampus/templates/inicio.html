@@ -1,53 +1,28 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<title>NotiCampus</title>
-		<link rel="stylesheet" href="{% static 'css/style.css' %}">
-	</head>
-	<body>
-		<p>Bienvenido {{usuario.username|upper}},
-        	Ultima vez logueado: {{usuario.last_login}}.</p>
-    	<p>Te logueaste el dia {{usuario.date_joined}}</p>
-		<div class="page">
-			<div class="header">
-				<a href="index.html" id="logo"><img src="{% static 'img/logo.png' %}" alt=""/></a>
-				<ul>
-					<li class="selected"><a href="">Home</a></li>
-					<li><a href="">About</a></li>
-					<li><a href="">Cursos</a></li>
-					<li><a href="">Notificaciones</a></li>
-				</ul>
-			</div>
-			<div class="body">
-				<div>
-					<h2>Noticias</h2>
-				</div>
-				{% for noticia in noticias%}
-				<div>
-					<p>de {{noticia.author}} - {{noticia.created_date}}</p>
-					<p>{{ noticia.title }}</p>
-					<p>{{ noticia.text|linebreaksbr }}</p>
-					<a href="blog.html">Leer mas</a>
-					<br>
-				</div>
-				{% endfor %}
-			</div>
-			<div class="footer">
-				<ul>
-					<li><a href="">Home</a></li>
-					<li><a href="">About</a></li>
-					<li><a href="">Cursos</a></li>
-					<li><a href="">Notificaciones</a></li>
-				</ul>
-				<p>&#169; Copyright &#169; 2k17. Company eEl fAmeEGHiiñ0o v0o </p>
-				<div class="connect">
-					<a href="http://facebook.com/" id="facebook">facebook</a>
-					<a href="http://twitter.com/" id="twitter">twitter</a>
-					<a href="http://www.youtube.com/" id="vimeo">vimeo</a>
-				</div>
-			</div>
+{% extends 'base.html' %}
+{% block body %}
+<body class="body">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-xs-3"><h1><a href="/">NotiCampus</a></h1></div>
+			<div class="col-xs-7"><img src="/static/img/icono.png" style="width:10%"></div>
+            <div class="col-xs-2"><h1> <a type="button" class="btn btn-danger" href="/cerrar">Sing Out</a></h1></div>
+        </div>
+    </div>
+{% block content %}
+	<div>
+			<h1>Noticias</h1>
+	</div>
+{% for noticia in noticias%}
+	<div class="noticia">
+		<div class="date">
+			{{ noticia.published_date }}
 		</div>
-	</body>
-</html>  
+		<p>de {{noticia.author}} - {{noticia.created_date}}</p>
+		<p>{{ noticia.title }}</p>
+		<p>{{ noticia.text|linebreaksbr }}</p>
+		<a href="blog.html">Leer mas</a>
+	</div>
+{% endfor %}
+{% endblock content %}
+</body>
+{% endblock body %}

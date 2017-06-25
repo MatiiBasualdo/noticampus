@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>AlertaUsuario</title>
-    <h1>El usuario no esta activo</h1>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="page-header">
+        <div class="row">
+            <div class="col-xs-3"><h1><a href="/">NotiCampus</a></h1></div>
+			<div class="col-xs-7"><img src="/static/img/icono.png" style="width:10%"></div>
+            <div class="col-xs-1"><a type="button" class="btn btn-primary" href="/usuario/nuevo">Sing up</a></div>
+
+        </div>
+    </div>
+<h1>Error</h1>
 <p>Contactarse con el administrador, para resolver el problema.</p>
-</body>
-</html>
+{% endblock %}

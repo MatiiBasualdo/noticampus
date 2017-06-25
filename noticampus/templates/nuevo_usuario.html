@@ -1,14 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Usuarios</title>
-    <h1>Registra un nuevo usuario</h1>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block body %}
+    <div class="page-header">
+        <div class="row">
+            <div class="col-xs-3"><h1><a href="/">NotiCampus</a></h1></div>
+			<div class="col-xs-7"><img src="/static/img/icono.png" style="width:10%"></div>
+            <div class="col-xs-1"><a type="button" class="btn btn-primary" href="/">Sing in</a></div>
+
+        </div>
+    </div>
+    <h1>Registrar</h1>
     <form id='formulario' method ='post' action=''>{% csrf_token%}
         <table>{{formulario}}</table>
-        <p><input type="submit" value="Registrar"/></p>
+        <p><button type="submit" class="btn btn-primary" value="Registrar">Registrar</button></p>
     </form>
-</body>
-</html>
+{% endblock body %}
