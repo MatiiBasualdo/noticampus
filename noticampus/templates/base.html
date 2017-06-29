@@ -3,36 +3,22 @@
 <html>
 <head>
     {% block head%}
-    <title>Django Girls blog</title>
+    <title>NotiCampus</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
     <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
-     {% endblock head %}
+     {% endblock %}
 </head>
 {% block body %}
-<body>
+<body class="body">
     <div class="content container">
         <div class="row">
             {% block content %}
-            {% endblock content %}
-        </div>
-    </div>
-    <div class="footer">
-        <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Cursos</a></li>
-            <li><a href="">Notificaciones</a></li>
-        </ul>
-        <p>&#169; Copyright &#169; 2k17. Company Aloosa(Ameghino) </p>
-        <div class="connect">
-            <a href="http://facebook.com/" id="Facebook ">facebook</a>
-            <a href="http://twitter.com/" id="Twitter ">twitter</a>
-            <a href="http://www.youtube.com/" id="Vimeo ">vimeo</a>
+            {% endblock %}
         </div>
     </div>
 </body>
-{% endblock body %}
+{% endblock %}
 </html>
