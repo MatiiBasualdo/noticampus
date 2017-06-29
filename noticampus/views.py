@@ -8,12 +8,14 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from .forms import NoticiaForm
+from django.contrib.auth.models import Group
 
 # Create your views here.
 
 def inicio(request):
     noticias = Noticia.objects.all().order_by('created_date')
-    return render(request, 'inicio.html', {'noticias': noticias})
+    grupo = Group.objects.get(name="Profesores").user_set.all()
+    return render(request, 'inicio.html', {'noticias': noticias, 'grupo':grupo})
 
 def nuevo_usuario(request):
     if request.method == 'POST':
@@ -37,7 +39,6 @@ def ingresar(request):
             if acceso is not None:
                 if acceso.is_active:
                     login(request, acceso)
-                    print request.session
                     return HttpResponseRedirect('/inicio')
                 else:
                     return render(request, 'noactivo.html', context=None)

@@ -2,31 +2,36 @@
 {% block body %}
     <div class="page-header">
         <div class="row">
-            <div class="col-xs-3"><h1><a href="/">NotiCampus</a></h1></div>
+            <div class="col-xs-3"><h1><a href="/" style="text-shadow:3px 1px 0 #444">NotiCampus</a></h1></div>
 			<div class="col-xs-7"><img src="/static/img/icono.png" style="width:10%"></div>
-            <div class="col-xs-2"><h1> <a type="button" class="btn btn-danger" href="/cerrar">Sing Out</a></h1></div>
+            <div class="col-xs-2"><h1> <a class="w3-btn w3-round-xxlarge w3-" style="text-shadow:3px 1px 0 #444" href="/cerrar">Sing Out</a></h1></div>
         </div>
     </div>
 {% block content %}
 <div class="col-xs-10">
 	<div>
+		{% if request.user in grupo %}
+			<h1>Noticias</h1> <a class="w3-button w3-circle w3-black" href="/nueva">+</a>
+		{% else %}
 			<h1>Noticias</h1>
-			<a type="button" class="btn btn-primary" href="/nueva">Nueva Noticia</a>
+		{% endif %}
 	</div>
 {% for noticia in noticias%}
-	<div class="noticia">
-		<div class="date">
-			{{ noticia.published_date }}
-		</div>
+	<div class="w3-container w3-gray" style="padding: 8px 8px;">
+		<h4>{{ noticia.title }}</h4>
 		<p>de {{noticia.author}} - {{noticia.created_date}}</p>
-		<p>{{ noticia.title }}</p>
 		<p>{{ noticia.text|linebreaksbr }}</p>
-		<a href="blog.html">Leer mas</a>
+		{% if request.user in grupo %}
+			<a class="w3-button w3-black w3-round" href="">Leer mas</a> <a class="w3-button w3-white w3-round" href="blog.html">Editar</a>
+		{% else %}
+			<a class="w3-button w3-black w3-round" href="">Leer mas</a>
+		{% endif %}
 	</div>
+	<br>
 {% endfor %}
 </div>
 <div class="col-xs-2">
-	<ul>
+	<ul class="w3-ul">
 		<li><a href="">Home</a></li>
 		<li><a href="">About</a></li>
 		<li><a href="">Cursos</a></li>
@@ -37,9 +42,9 @@
  <div class="footer">
 	<p>&#169; Copyright &#169; 2017. Company Aloosa(Ameghino) </p>
 	<div class="connect">
-		<a href="http://facebook.com/" id="Facebook ">Facebook |</a>
-		<a href="http://twitter.com/" id="Twitter "> Twitter |</a>
-		<a href="http://www.youtube.com/" id="Vimeo "> Vimeo</a>
+		<a href="https://www.facebook.com/matii.basualdo" id="Facebook " style="color: #fff">Facebook |</a>
+		<a href="https://twitter.com/matiasbasualdo4" id="Twitter " style="color: #fff"> Twitter |</a>
+		<a href="http://www.youtube.com/" id="Vimeo " style="color: #fff"> Vimeo</a>
 	</div>
  </div>
 {% endblock body %}
