@@ -7,5 +7,5 @@ urlpatterns = [
 	url(r'^inicio/$', views.inicio),
 	url(r'^privado/$',views.privado),
 	url(r'^cerrar/$', views.cerrar),
-
+	url(r'^nueva/$', views.nueva_noticia),
 ]

@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block body %}
+    <h1>Nueva Noticia</h1>
+        <form method="POST" class="post-form">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-default" target="_blank">Publicar</button>
+        </form>
+{% endblock body %}
