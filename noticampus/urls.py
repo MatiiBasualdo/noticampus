@@ -8,4 +8,5 @@ urlpatterns = [
 	url(r'^privado/$',views.privado),
 	url(r'^cerrar/$', views.cerrar),
 	url(r'^nueva/$', views.nueva_noticia),
+	url(r'^noticia/(?P<pk>[0-9]+)/edit/$', views.noticia_edit, name='noticia_edit'),
 ]

@@ -1,4 +1,4 @@
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render, render_to_response, redirect
 from django.utils import timezone
 from .models import Noticia
 from django.contrib.auth.forms import UserCreationForm
@@ -9,6 +9,7 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from .forms import NoticiaForm
 from django.contrib.auth.models import Group
+from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 
@@ -71,3 +72,16 @@ def nueva_noticia(request):
     else:
         form = NoticiaForm()
         return render(request, 'noticia_edit.html', {'form': form})
+
+def noticia_edit(request, pk):
+    noticia = get_object_or_404(Noticia, pk=pk)
+    if request.method == "POST":
+        form = NoticiaForm(request.POST, instance=noticia)
+        if form.is_valid():
+            noticia = form.save(commit=False)
+            noticia.author = request.user
+            noticia.save()
+            return redirect('noticia_edit', pk=noticia.pk)
+    else:
+        form = NoticiaForm(instance=noticia)
+    return render(request, 'noticia_edit.html', {'form': form})

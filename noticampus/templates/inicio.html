@@ -18,7 +18,10 @@
 	</div>
 {% for noticia in noticias%}
 	<div class="w3-container w3-gray" style="padding: 8px 8px;">
-		<h4>{{ noticia.title }}</h4>
+		{% if request.user in grupo %}
+			<a class="btn btn-default" href="{% url 'noticia_edit' pk=noticia.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+		{% endif %}
+		<h3>{{ noticia.title }}</h3>
 		<p>de {{noticia.author}} - {{noticia.created_date}}</p>
 		<p>{{ noticia.text|linebreaksbr }}</p>
 		{% if request.user in grupo %}

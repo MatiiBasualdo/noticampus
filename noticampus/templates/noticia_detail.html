@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="date">
+        {% if noticia.published_date %}
+            {{ noticia.published_date }}
+        {% endif %}
+        <a class="btn btn-default" href="{% url 'noticia_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    </div>
+    <h1>{{ noticia.title }}</h1>
+    <p>{{ noticia.text|linebreaksbr }}</p>
+{% endblock %}
