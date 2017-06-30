@@ -65,7 +65,7 @@ h1, h2, h3, h4 {
 .connect {
     margin-top: -50px;
     height: 40px;
-    padding: 5px 0px;
+    padding-top: 22px;
     clear: both;
     background: #ff9400;
     text-align: center;
