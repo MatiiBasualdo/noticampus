@@ -68,7 +68,7 @@ def nueva_noticia(request):
             noticia.author = request.user
             noticia.published_date = timezone.now()
             noticia.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/inicio')
     else:
         form = NoticiaForm()
         return render(request, 'noticia_edit.html', {'form': form})
@@ -81,7 +81,12 @@ def noticia_edit(request, pk):
             noticia = form.save(commit=False)
             noticia.author = request.user
             noticia.save()
-            return redirect('noticia_edit', pk=noticia.pk)
+            return HttpResponseRedirect('/')
     else:
         form = NoticiaForm(instance=noticia)
     return render(request, 'noticia_edit.html', {'form': form})
+
+def noticia_delete(request, pk):
+    noticia = get_object_or_404(Noticia, pk=pk)
+    noticia.delete()
+    return HttpResponseRedirect('/inicio')

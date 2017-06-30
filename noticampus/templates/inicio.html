@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-xs-3"><h1><a href="/inicio" style="text-shadow:3px 1px 0 #444">NotiCampus</a></h1></div>
 			<div class="col-xs-7"><img src="/static/img/icono.png" style="width:10%"></div>
-            <div class="col-xs-2"><h1> <a class="w3-btn w3-round-xxlarge w3-" style="text-shadow:3px 1px 0 #444" href="/cerrar">Sing Out</a></h1></div>
+            <div class="col-xs-2"><h1> <a class="w3-btn w3-round-xxlarge w3-" style="text-shadow:3px 1px 0 #444" href="/cerrar">Sign Out</a></h1></div>
         </div>
     </div>
 {% block content %}
@@ -18,14 +18,12 @@
 	</div>
 {% for noticia in noticias%}
 	<div class="w3-container w3-gray" style="padding: 8px 8px;">
-		{% if request.user in grupo %}
-			<a class="btn btn-default" href="{% url 'noticia_edit' pk=noticia.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-		{% endif %}
 		<h3>{{ noticia.title }}</h3>
 		<p>de {{noticia.author}} - {{noticia.created_date}}</p>
 		<p>{{ noticia.text|linebreaksbr }}</p>
-		{% if request.user in grupo %}
-			<a class="w3-button w3-black w3-round" href="">Leer mas</a> <a class="w3-button w3-white w3-round" href="blog.html">Editar</a>
+		{% if request.user in grupo and noticia.author == request.user %}
+			<a class="w3-button w3-black w3-round" href="">Leer mas</a> <a class="w3-button w3-white w3-round" href="{% url 'noticia_edit' pk=noticia.pk %}">Editar</a>
+			<a class="w3-button w3-white w3-round" href="{% url 'noticia_delete' pk=noticia.pk %}">Eliminar</a>
 		{% else %}
 			<a class="w3-button w3-black w3-round" href="">Leer mas</a>
 		{% endif %}
