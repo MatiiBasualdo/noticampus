@@ -18,6 +18,11 @@ def inicio(request):
     grupo = Group.objects.get(name="Profesores").user_set.all()
     return render(request, 'inicio.html', {'noticias': noticias, 'grupo':grupo})
 
+def noticia_completa(request, pk):
+    noticia = get_object_or_404(Noticia, pk=pk)
+    return render(request, 'noticia_completa.html', {'noticia': noticia})
+
+
 def nuevo_usuario(request):
     if request.method == 'POST':
         formulario = UserCreationForm(request.POST)

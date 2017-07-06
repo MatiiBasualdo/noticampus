@@ -20,12 +20,12 @@
 	<div class="w3-container w3-gray" style="padding: 8px 8px;">
 		<h3>{{ noticia.title }}</h3>
 		<p>de {{noticia.author}} - {{noticia.created_date}}</p>
-		<p>{{ noticia.text|linebreaksbr }}</p>
+		<p>{{ noticia.text|slice:"0:200" }}</p>
 		{% if request.user in grupo and noticia.author == request.user %}
-			<a class="w3-button w3-black w3-round" href="">Leer mas</a> <a class="w3-button w3-white w3-round" href="{% url 'noticia_edit' pk=noticia.pk %}">Editar</a>
+			<a class="w3-button w3-black w3-round" href="{% url 'noticia_completa' pk=noticia.pk %}">Leer mas</a> <a class="w3-button w3-white w3-round" href="{% url 'noticia_edit' pk=noticia.pk %}">Editar</a>
 			<a class="w3-button w3-white w3-round" href="{% url 'noticia_delete' pk=noticia.pk %}">Eliminar</a>
 		{% else %}
-			<a class="w3-button w3-black w3-round" href="">Leer mas</a>
+			<a class="w3-button w3-black w3-round" href="{% url 'noticia_completa' pk=noticia.pk %}">Leer mas</a>
 		{% endif %}
 	</div>
 	<br>
