@@ -3,6 +3,6 @@
     <h1>Nueva Noticia</h1>
         <form method="POST" class="post-form">{% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="w3-button w3-white w3-round" href="/inicio" target="_blank">Publicar</button>
+            <button type="submit" class="w3-button w3-orange w3-round" href="/inicio" target="_blank">Publicar</button>
         </form>
 {% endblock body %}

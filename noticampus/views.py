@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from .forms import NoticiaForm
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import Group, User
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
@@ -95,3 +95,8 @@ def noticia_delete(request, pk):
     noticia = get_object_or_404(Noticia, pk=pk)
     noticia.delete()
     return HttpResponseRedirect('/inicio')
+
+def noticia_usuario(request, pk):
+    usr = get_object_or_404(User, pk=pk)
+    noticias = Noticia.objects.filter(author=usr)
+    return render(request, 'noticias_usuario.html', {'noticias': noticias, 'usuario':usr})
