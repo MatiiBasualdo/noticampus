@@ -1,0 +1,17 @@
+Feedback
+--------
+
+El TP está muy bien. Hay claramente un muy buen laburo, y se trabajaron muchisimos
+conceptos en su TP.
+
+Dejo a continuación una lista de cosas que quedan pendientes y que estaría bueno
+tener como para darle un cierre formal al trabajo.
+
+TODO
+----
+
+* Autorización: Evitar que un usuario que no es el propietario de la noticia pueda editarla.
+* Autorización: Evitar que un usuario pueda ingresar al listado si no inició sesión.
+* Eliminar links laterales de "Home", "About", etc.
+* Cambiar el texto del link a "vimeo" que lleva a "youtube".
+* Arreglar detalles de CSS
