@@ -71,3 +71,9 @@ h3.noticia {
 
 }
 
+h1.noticia {
+    text-transform: uppercase;
+    text-decoration: underline
+
+}
+

@@ -12,7 +12,7 @@ from django.contrib.auth.models import Group, User
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
-
+@login_required(login_url='/ingresar')
 def inicio(request):
     noticias = Noticia.objects.all().order_by('created_date')
     grupo = Group.objects.get(name="Profesores").user_set.all()
