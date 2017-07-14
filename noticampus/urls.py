@@ -1,6 +1,8 @@
 from django.conf.urls import include, url
 from . import views
+from django.conf.urls import handler404
 
+# handler404 = views.mi_error_404
 urlpatterns = [
 	url(r'^$', views.ingresar),
 	url(r'^usuario/nuevo$', views.nuevo_usuario),

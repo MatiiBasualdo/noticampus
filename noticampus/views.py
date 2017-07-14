@@ -10,6 +10,7 @@ from django.template import RequestContext
 from .forms import NoticiaForm
 from django.contrib.auth.models import Group, User
 from django.shortcuts import render, get_object_or_404
+from django.views.defaults import page_not_found
 
 # Create your views here.
 @login_required(login_url='/ingresar')
@@ -89,7 +90,10 @@ def noticia_edit(request, pk):
             return HttpResponseRedirect('/')
     else:
         form = NoticiaForm(instance=noticia)
-    return render(request, 'noticia_edit.html', {'form': form})
+    if request.user == noticia.author:
+        return render(request, 'noticia_edit.html', {'form': form})
+    else:
+        return render(request, 'noticia_completa.html', {'noticia': noticia})
 
 def noticia_delete(request, pk):
     noticia = get_object_or_404(Noticia, pk=pk)
@@ -100,3 +104,4 @@ def noticia_usuario(request, pk):
     usr = get_object_or_404(User, pk=pk)
     noticias = Noticia.objects.filter(author=usr)
     return render(request, 'noticias_usuario.html', {'noticias': noticias, 'usuario':usr})
+
